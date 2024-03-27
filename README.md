@@ -15,7 +15,7 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://git.gts-vietnam.com/outsource/baas-projects/merchant-app/merchant-app.git
+git remote add origin https://github.com/Dao-Van-Thanh/flutter-template.git
 git branch -M main
 git push -uf origin main
 ```
