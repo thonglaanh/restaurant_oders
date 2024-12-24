@@ -4,14 +4,14 @@ import 'package:flutter/widgets.dart';
 import 'package:untitled/features/order_floors/widgets/bottom_sheet_order_dish.dart';
 import 'package:untitled/shared/models/dish_model.dart';
 
-class UnknownScreen extends StatefulWidget {
-  const UnknownScreen({super.key});
+class OrderFloorsScreen extends StatefulWidget {
+  const OrderFloorsScreen({super.key});
 
   @override
-  State<UnknownScreen> createState() => _UnknownScreenState();
+  State<OrderFloorsScreen> createState() => _OrderFloorsScreenState();
 }
 
-class _UnknownScreenState extends State<UnknownScreen> {
+class _OrderFloorsScreenState extends State<OrderFloorsScreen> {
 
   final tabItems = [
     TabItem(icon: const Icon(Icons.restaurant), label: 'Món ăn'),
@@ -21,7 +21,7 @@ class _UnknownScreenState extends State<UnknownScreen> {
 
 
   void onTapShowBottomSheetOrderDish(BuildContext context){
-    showModalBottomSheet(     isScrollControlled: true,context: context, builder: (context) {
+    showModalBottomSheet(context: context, builder: (context) {
       return const BottomSheetOrderDish();
     },);
 
@@ -78,7 +78,7 @@ class _UnknownScreenState extends State<UnknownScreen> {
                 return _generateButtonTab(
                   isSelected,
                   tabItems[index].label,
-                  () {
+                      () {
                     setState(() {});
                   },
                 );
@@ -164,7 +164,7 @@ class _UnknownScreenState extends State<UnknownScreen> {
             ),
           ),
 
-         IconButton(onPressed: () {}, icon:const Icon(  Icons.add,color: Colors.green,),),
+          IconButton(onPressed: () {}, icon:const Icon(  Icons.add,color: Colors.green,),),
         ],
       ),
     );
