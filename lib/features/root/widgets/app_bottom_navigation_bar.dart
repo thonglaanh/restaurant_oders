@@ -24,14 +24,20 @@ class AppBottomNavigationBar extends ConsumerWidget {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Image(image: AssetImage('assets/icons/home_icon.png')),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Image(image: AssetImage('assets/icons/bill_icon.png')),
             label: 'Settings',
           ),
+          BottomNavigationBarItem(
+            icon: Image(image: AssetImage('assets/icons/profile_icon.png')),
+            label: 'Profile',
+          ),
         ],
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       ),
     );
   }

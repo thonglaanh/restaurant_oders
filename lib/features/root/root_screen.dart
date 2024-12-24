@@ -37,7 +37,9 @@ class RootScreen extends ConsumerWidget {
       case NavigatorBottomTabEnum.home:
         return RoutePage.onGenerateHomeRoute;
       case NavigatorBottomTabEnum.settings:
-        return RoutePage.onGenerateSettingsRoute;
+        return RoutePage.onGenerateBillRoute;
+      case NavigatorBottomTabEnum.profile:
+        return RoutePage.onGenerateProfileRoute;
     }
   }
 }
