@@ -2,7 +2,7 @@ class RouteName {
   static const root = 'root';
   static const counter = 'counter';
 
-  static const splash = 'splash';
+  static const splas = 'splas';
   static const login = 'login';
   static const home = 'home';
   static const unknown = 'unknown';
