@@ -15,7 +15,7 @@ class BottomNavigationProvider {
   static final home =
       _bottomNavigationRouterFamily(NavigatorBottomTabEnum.home);
   static final settings =
-      _bottomNavigationRouterFamily(NavigatorBottomTabEnum.settings);
+      _bottomNavigationRouterFamily(NavigatorBottomTabEnum.bill);
   static final profile =
   _bottomNavigationRouterFamily(NavigatorBottomTabEnum.profile);
 

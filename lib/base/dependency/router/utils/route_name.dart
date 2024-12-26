@@ -1,15 +1,18 @@
 class RouteName {
   static const root = 'root';
-  static const counter = 'counter';
 
   static const splash = 'splash';
   static const login = 'login';
-  static const home = 'home';
-  static const unknown = 'unknown';
 
-  static const location = 'location';
-  static const notification = 'notification';
-  static const settings = 'settings';
+  static const home = 'home';
+  static const order = 'order';
+
+  static const bill = 'bill';
 
   static const profile = 'profile';
+  static const profileInfomation = 'profileInfomation';
+  static const orderHistory = 'orderHistory';
+  static const orderHistoryDetail = 'orderHistoryDetail';
+
+  static const unknown = 'unknown';
 }

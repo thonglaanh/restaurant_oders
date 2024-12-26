@@ -1,14 +1,14 @@
 import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
-enum NavigatorBottomTabEnum { home, settings, profile }
+enum NavigatorBottomTabEnum { home, bill, profile }
 
 extension NavigationBottomTabExtension on NavigatorBottomTabEnum {
   String get initialRoute {
     switch (this) {
       case NavigatorBottomTabEnum.home:
         return RouteName.home;
-      case NavigatorBottomTabEnum.settings:
-        return RouteName.settings;
+      case NavigatorBottomTabEnum.bill:
+        return RouteName.bill;
       case NavigatorBottomTabEnum.profile:
         return RouteName.profile;
     }
@@ -19,7 +19,7 @@ extension NavigationBottomTabExtension on NavigatorBottomTabEnum {
       case 0:
         return NavigatorBottomTabEnum.home;
       case 1:
-        return NavigatorBottomTabEnum.settings;
+        return NavigatorBottomTabEnum.bill;
       case 2:
         return NavigatorBottomTabEnum.profile;
     }
@@ -30,7 +30,7 @@ extension NavigationBottomTabExtension on NavigatorBottomTabEnum {
     switch (tab) {
       case NavigatorBottomTabEnum.home:
         return 0;
-      case NavigatorBottomTabEnum.settings:
+      case NavigatorBottomTabEnum.bill:
         return 1;
       case NavigatorBottomTabEnum.profile:
         return 2;

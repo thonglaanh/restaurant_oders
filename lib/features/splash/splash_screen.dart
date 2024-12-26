@@ -14,8 +14,8 @@ class SplashScreen extends ConsumerWidget {
         child: Image.asset(
           'assets/images/splash.gif',
           fit: BoxFit.cover,
-          width: 200,
-          height: 200,
+          width: 180,
+          height: 180,
         ),
       ),
     );
