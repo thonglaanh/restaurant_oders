@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/base/dependency/router/utils/route_screen.dart';
-
 import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
 class RoutePage {
@@ -12,8 +11,14 @@ class RoutePage {
         return RouteScreen.loginPageRoute(settings);
       case RouteName.root:
         return RouteScreen.rootPageRoute(settings);
-      case RouteName.counter:
-        return RouteScreen.counterPageRoute(settings);
+      case RouteName.order:
+        return RouteScreen.oderPageRoute(settings);
+      case RouteName.profileInfomation:
+        return RouteScreen.profileInfomationPageRoute(settings);
+      case RouteName.orderHistory:
+        return RouteScreen.orderHistoryPageRoute(settings);
+      case RouteName.orderHistoryDetail:
+        return RouteScreen.orderHistoryDetailPageRoute(settings);
     }
     return RouteScreen.unknownPageRoute(settings);
   }
@@ -22,15 +27,13 @@ class RoutePage {
     switch (settings.name) {
       case RouteName.home:
         return RouteScreen.homePageRoute(settings);
-      case RouteName.counter:
-        return RouteScreen.counterPageRoute(settings);
     }
     return RouteScreen.unknownPageRoute(settings);
   }
 
   static Route<dynamic>? onGenerateBillRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RouteName.settings:
+      case RouteName.bill:
         return RouteScreen.billPageRoute(settings);
     }
     return RouteScreen.unknownPageRoute(settings);

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:untitled/base/dependency/app_service.dart';
+import 'package:untitled/base/dependency/router/utils/route_input.dart';
 
-// Provider to manage password visibility state
 final passwordVisibilityProvider = StateProvider<bool>((ref) => true);
 
 class LoginScreen extends ConsumerWidget {
@@ -10,6 +11,12 @@ class LoginScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isPasswordVisible = ref.watch(passwordVisibilityProvider);
+
+    final routerService = ref.watch(AppService.router);
+
+    void onHandleLogin() {
+      routerService.pushReplacement(RouteInput.root());
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -37,7 +44,7 @@ class LoginScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 20),
             TextField(
-              obscureText: isPasswordVisible,
+              // obscureText: isPasswordVisible,
               decoration: InputDecoration(
                 labelText: 'Mật khẩu',
                 border: OutlineInputBorder(
@@ -92,8 +99,7 @@ class LoginScreen extends ConsumerWidget {
                   ),
                 ),
                 onPressed: () {
-                  // Handle Login button
-                  Navigator.pushNamed(context, 'root');
+                  onHandleLogin();
                 },
                 child: const Text(
                   'Đăng nhập',

@@ -37,10 +37,14 @@ linter:
     prefer_final_locals: true
     unnecessary_brace_in_string_interps: false
 
-
 analyzer:
   errors:
     unused_element: ignore
+    non_constant_identifier_names: ignore
+    deprecated_member_use: ignore
+    implementation_imports: ignore
+    depend_on_referenced_packages: ignore
+    unused_import: ignore
   plugins:
     - custom_lint
   exclude: [lib/**.freezed.dart, lib/**.g.dart]

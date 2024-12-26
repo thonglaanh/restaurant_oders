@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:untitled/base/dependency/app_service.dart';
+import 'package:untitled/base/dependency/router/utils/route_input.dart';
 import 'package:untitled/features/widget/appbar_widget.dart';
+import 'package:untitled/shared/svgs/svg_oder_floors.dart';
+import 'package:untitled/shared/svgs/svg_restaurant.dart';
 
-class BillScreen extends StatelessWidget {
+class BillScreen extends ConsumerWidget {
   const BillScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final routerService = ref.watch(AppService.router);
     return Scaffold(
       appBar: const CustomAppbar(title: 'Hóa đơn'),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 12),
@@ -23,52 +31,59 @@ class BillScreen extends StatelessWidget {
                 text1: 'Bàn số: ',
                 text2: '1',
                 fontSize: 18,
-                icon_right: 'computer_icon.png',
+                icon_right: SvgRestaurant.computer,
               ),
               buildTextWithDivider(
                 text1: 'Tình trạng: ',
                 text2: 'Đã xác nhận',
                 color: Colors.green,
                 fontSize: 18,
-                icon_right: 'status_icon.png',
+                icon_right: SvgRestaurant.status_online,
               ),
               buildTextWithDivider(
                 text1: 'Thời gian đặt bàn: ',
                 text2: '10:00 AM',
                 fontSize: 18,
-                icon_right: 'time_icon.png',
+                icon_right: SvgRestaurant.time_cop,
               ),
               buildTextWithDivider(
                 text1: 'Nhân viên xác nhận: ',
-                text2: 'Nguyễn Xuân Duẫn',
+                text2: 'Nguyễn Văn A',
                 fontSize: 18,
-                icon_right: 'staff_icon.png',
+                icon_right: SvgRestaurant.staff_symbol,
               ),
               buildTextWithDivider(
                 text1: 'Mức thanh toán dự kiến: ',
                 text2: '360.000 VND',
                 color: Colors.red,
                 fontSize: 18,
-                icon_right: 'money_icon.png',
+                icon_right: SvgRestaurant.money,
               ),
-              buildTextWithDivider(
-                text1: 'Món đã gọi',
-                fontSize: 18,
-                icon_right: 'food_icon.png',
-                icon_left: true,
+              GestureDetector(
+                onTap: () {
+                  routerService.push(RouteInput.orderHistoryDetail());
+                },
+                child: buildTextWithDivider(
+                  text1: 'Món đã gọi',
+                  fontSize: 18,
+                  icon_right: SvgRestaurant.food_market,
+                  icon_left: true,
+                ),
               ),
               const SizedBox(
                 height: 40,
               ),
-              Image.asset(
-                'assets/icons/hot_icon.png',
+              SvgPicture.string(
+                SvgOderFloors.hot_spring,
                 width: 150,
                 height: 150,
+                color: const Color(0xFF9DA4AE),
               ),
               buildTextWithDivider(
                 text2: 'Chúc quý khách một ngày tràn đầy năng lượng',
                 color: const Color(0xFF9DA4AE),
                 fontSize: 14,
+                mainAxisAlignment: MainAxisAlignment.center,
               ),
             ],
           ),
@@ -85,14 +100,15 @@ class BillScreen extends StatelessWidget {
     FontWeight? fontWeight,
     String? icon_right,
     bool? icon_left,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.spaceBetween,
   }) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: mainAxisAlignment,
       children: [
         Row(
           children: [
             if (icon_right != null) ...[
-              Image.asset('assets/icons/$icon_right'),
+              SvgPicture.string(icon_right),
               const SizedBox(width: 10),
             ],
             Text(
@@ -129,6 +145,7 @@ class BillScreen extends StatelessWidget {
     FontWeight? fontWeight,
     String? icon_right,
     bool? icon_left,
+    MainAxisAlignment? mainAxisAlignment,
   }) {
     return Column(
       children: [
@@ -140,6 +157,8 @@ class BillScreen extends StatelessWidget {
           fontWeight: fontWeight,
           icon_right: icon_right,
           icon_left: icon_left,
+          mainAxisAlignment:
+              mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
         ),
         verticalSpacing(12),
         const Divider(color: Color(0xFFDADDE0), height: 2),
